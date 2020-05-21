@@ -1,0 +1,34 @@
+extends ../layout.pug
+
+block prepend styles
+    link(rel='stylesheet' href='//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css')
+
+block content
+    div(class='breadcrumb')
+        li= title
+    form(id='goodstostation-add-form' name='goodstostation-add-form' class='form-inline' action='')
+        div(class='form-group')
+            div(class='col-md-3')
+                label(for='spacestation') SpaceStation
+            div(class='col-md-10')
+                select(id='spacestation' name='spacestation' class='form-control' required='required')
+                    option(value='' selected='selected') Select spacestation
+        div(class='form-group')
+            div(class='col-md-3')
+                label(for='goods') Goods
+            div(class='col-md-10')
+                select(id='goods' name='goods' class='form-control' required='required')
+                    option(value='' selected='selected') Select good
+        div(class='form-group')
+            div(class='col-md-12')
+                button(type='submit' id='btn-create' class='btn btn-primary') Create
+                button(type='submit' id='btn-update' class='btn btn-primary btn-hidden') Update
+                input(type='hidden' id='update-item' name='update-item')
+        div.list-wrapper
+            table(id='goodstostation-list')
+block append scripts
+    script(src='/static/js/models/spacestation.js')
+    script(src='/static/js/models/goods.js')
+    script(src='/static/js/models/goodstostation.js')
+    script(src='//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')
+    script(src='/static/js/views/goodstostation.js')

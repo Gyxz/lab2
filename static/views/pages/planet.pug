@@ -1,0 +1,44 @@
+extends ../layout.pug
+
+block prepend styles
+    link(rel='stylesheet' href='//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css')
+
+block content
+    div(class='breadcrumb')
+        li= title
+    form(id='planet-add-form' name='planet-add-form' class='form-inline' action='')
+        div(class='form-group')
+            div(class='col-md-4')
+                label(for='name') Name
+            div(class='col-md-9')
+                input(id='name' name='name' value='' class='form-control')
+        div(class='form-group')
+            div(class='col-md-4')
+                label(for='spacestation') SpaceStation
+            div(class='col-md-9')
+                select(id='spacestation' name='spacestation' class='form-control' required='required')
+                    option(value='' selected='selected') Select spacestation
+            //- div(class='col-md-9')
+            //-     input(id='spacestation' name='spacestation' value='' class='form-control')
+        div(class='form-group')
+            div(class='col-md-4')
+                label(for='capasity') Capasity
+            div(class='col-md-9')
+                input(id='capasity' name='capasity' value='' class='form-control')
+        div(class='form-group')
+            div(class='col-md-4')
+                label(for='mass') Mass
+            div(class='col-md-9')
+                input(id='mass' name='mass' value='' class='form-control')
+        div(class='form-group')
+            div(class='col-md-12')
+                button(type='submit' id='btn-create' class='btn btn-primary') Create
+                button(type='submit' id='btn-update' class='btn btn-primary btn-hidden') Update
+                input(type='hidden' id='update-item' name='update-item')
+        div.list-wrapper
+            table(id='planet-list')
+block append scripts
+    script(src='/static/js/models/spacestation.js')
+    script(src='/static/js/models/planet.js')
+    script(src='//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')
+    script(src='/static/js/views/planet.js')

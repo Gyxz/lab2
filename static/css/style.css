@@ -1,0 +1,12 @@
+.list-wrapper {
+    margin-top: 20px;
+}
+
+.list-icon {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.btn-hidden {
+	display: none;
+}
